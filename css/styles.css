@@ -1,13 +1,40 @@
+img{
+	width: 70px;
+	height: 120px;
+}
+
 .the-table{
-	background-color: green;
-	border: 5px solid #277714;
-	border-radius: 10px;
-	margin-top: 50px;
-	padding: 30px 0;
+	background-color: #15286A;
+	border: 5px solid #333;
+	border-bottom-left-radius: 40%;
+	border-bottom-right-radius: 40%;
+	border-top-left-radius: 5%;
+	border-top-right-radius: 5%;
+	margin-top:  100px;
+	padding: 30px 0px;
+	color: white;
+	font-weight: 900;
 }
 .card{
+	width: 70px;
 	height: 120px;
-	background-color: white;
+	background-color: #fff;
 	color: black;
 	margin: 10px;
+	border-radius: 5px;
+}
+body{
+	background-image: url("../galaxy-wallpaper-11.jpg")
+}
+button{
+	border-radius: 10px;
+	background-color: white;
+	color: black;
+	margin-left: 10px;
+}
+h1{
+	font-size: 32px;
+	text-align: center;
+	color: white;
+	margin-top: 100px;
 }

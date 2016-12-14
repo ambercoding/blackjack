@@ -2,73 +2,86 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<!-- Latest compiled and minified CSS -->
 
+	<!-- Link to local Bootsrap -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<!-- Link to custom css -->
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 
-	<script src="js/js.min.js"></script>
-	<script src="js/scripts.js"></script>
-
+	<!-- Link to local jquery -->
+	<script type="text/javascript" src="js/js.min.js"></script>
+	<!-- Link to custom js -->
+	<script type="text/javascript" src="js/scripts.js"></script>
 
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="the-table col-sm-8 col-sm-offset-2">
-				<div class="row">
 
+
+<!-- Layout: -->
+<!-- Create an element for our table. Turn it green, and give it a white border. -->
+<!-- Create an element for the dealer's hand and for the player's hand. -->
+<!-- Create an element for the dealer's total and the player's total. -->
+<!-- Create an element for each card in each hand, a maximum of 6 cards.  -->
+<!-- Assign a generic class to each card and a unique class to each card so we style and target  -->
+<!-- Make a Deal, hit, and stand button -->
+<h1>Black Jack</h1>
+<div class="container">
+	<div class="row">
+		<!-- The table element -->
+		<div class="the-table col-sm-8 col-sm-offset-2">
+			<div class="row">
+				<!-- The dealer element -->
 				<div class="col-sm-12 dealer-hand-wrapper">
-				Dealer total
-				<div class="col-sm-3 dealer-total">
-					Dealer Total <span class="dealer-total-number">0</span>
+					<!-- Dealer Total -->
+					<div class="col-sm-3 dealer-total">
+						Dealer Total <span class="dealer-total-number">0</span>
 					</div>
 					<div class="col-sm-9 dealer-cards">
-					<div class="col-sm-1 card card-one"></div>
-					<div class="col-sm-1 card card-two"></div>
-					<div class="col-sm-1 card card-three"></div>
-					<div class="col-sm-1 card card-four"></div>
-					<div class="col-sm-1 card card-five"></div>
-					<div class="col-sm-1 card card-six"></div>
+						<div class="col-sm-1 card cardone"></div>
+						<div class="col-sm-1 card cardtwo"></div>
+						<div class="col-sm-1 card cardthree"></div>
+						<div class="col-sm-1 card cardfour"></div>
+						<div class="col-sm-1 card cardfive"></div>
+						<div class="col-sm-1 card cardsix"></div>
+					</div>
+				</div>
+			</div>
 
-				</div>
-				</div>
-</div>
-<div class="row">
+			<!-- The player element -->
+			<div class="row">
 				<div class="col-sm-12 player-hand-wrapper">
-				Player total
-					<div vlass="col-sm-3 player-total">
-					Player Total <span class="player-total-number">0</span>
+					<!-- Player Total -->
+					<div class="col-sm-3 player-total">
+						Player Total <span class="player-total-number">0</span>
 					</div>
 					<div class="col-sm-9 player-cards">
-					<div class="col-sm-1 card card-one"></div>
-					<div class="col-sm-1 card card-two"></div>
-					<div class="col-sm-1 card card-three"></div>
-					<div class="col-sm-1 card card-four"></div>
-					<div class="col-sm-1 card card-five"></div>
-					<div class="col-sm-1 card card-six"></div>
-
-				</div>
-				</div>
-</div>				
-
-				<div class="row">
-					<div class="col-sm-2 col-sm-offset-2">
-					<button class="deal-button">Deal</button>
+						<div class="col-sm-1 card cardone"></div>
+						<div class="col-sm-1 card cardtwo"></div>
+						<div class="col-sm-1 card cardthree"></div>
+						<div class="col-sm-1 card cardfour"></div>
+						<div class="col-sm-1 card cardfive"></div>
+						<div class="col-sm-1 card cardsix"></div>
 					</div>
-					<div class="col-sm-2 col-sm-offset-2">
-					<button class="deal-button">Hit</button>
-					</div>
-					<div class="col-sm-2 col-sm-offset-2">
-					<button class="deal-button">Stand</button>
-					</div>
-
-
-
 				</div>
-
 			</div>
+
+			<div class="row">
+				<div class="col-sm-2 col-sm-offset-2">
+					<button class="deal-button">Deal</button>
+				</div>
+				<div class="col-sm-2 col-sm-offset-1">
+					<button class="hit-button">Hit</button>
+				</div>				
+				<div class="col-sm-2 col-sm-offset-1">
+					<button class="stand-button">Stand</button>
+				</div>
+			</div>
+<!-- 1 2 3 4 5 6 7 8 9 10 11 12
+----DEAL--HIT --STAND----- -->
+
 		</div>
 	</div>
+</div>
+	
 </body>
 </html>
