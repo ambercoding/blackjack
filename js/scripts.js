@@ -1,34 +1,36 @@
-//Globals
-//Globals
-//Globals
-var theDeck = createDeck();
-var playersHand = []  //player1squares in tic tac toe
-var dealersHand =[] //player2squares in tic tac toe
-createDeck();
+
+//GLOBALS
+
+const freshDeck = createDeck();
+theDeck = freshDeck;
+var playersHand = [] //player1Squares in tictactoe
+var dealersHand = [] //player2Squares in tictactoe
+// var topOfDeck = 4; Could use without shift 
+
 
 $(document).ready(function(){
 
 	$('.deal-button').click(function(){
-		// deal stuff goes in here
-		shuffleDeck();
-		playersHand.push(theDeck[0]);
-		playersHand.push(theDeck[2]);
+		//Deal stuff goes in here
+		shuffleDeck(); //Deck is now shuffled!
+		// Update player array and DOM
+		//Use shift to remove the top card from the deck.
+		// Shift returns the element removed, so push .shift() onto the hand
 
-		// placeCard('player','one',playersHand[0]);
-		// placeCard('player','two',playersHand[1]);
+		playersHand.push(theDeck.shift()); //2d
+		dealersHand.push(theDeck.shift()); //3d
+		playersHand.push(theDeck.shift()); //4d
+		dealersHand.push(theDeck.shift());
 
-		placeCard('player','one',playersHand[0]);
-    	placeCard('player','two',playersHand[1]);
+		placeCard('player',1,playersHand[0]);
+		placeCard('player',2,playersHand[1]);
 
-    	dealersHand.push(theDeck[1]);
-		dealersHand.push(theDeck[3]);
+		// Update dealer array and DOM
+		placeCard('dealer',1,dealersHand[0]);
+		placeCard('dealer',2,dealersHand[1]);
 
-		placeCard('dealer','one',dealersHand[0]);
-		placeCard('dealer','two',dealersHand[1]);
-
-		calculateTotal(playersHand, 'player');
-		calculateTotal(dealersHand, 'dealer');
-
+		calculateTotal(playersHand,'player');
+		calculateTotal(dealersHand,'dealer');
 	});
 	$('.hit-button').click(function(){
 	//Hit stuff goes in here
@@ -46,13 +48,60 @@ $(document).ready(function(){
 		// }
 	});
 	$('.stand-button').click(function(){
+			var dealerTotal = calculateTotal(dealersHand,'dealer');
 		while(dealerTotal < 17){
-			
+			// Dealer has less than 17... hit away!
+			dealersHand.push(theDeck.shift());
+			var lastCardIndex = dealersHand.length-1;
+			var slotForNewCard = dealersHand.length;
+			placeCard('dealer',slotForNewCard,dealersHand[lastCardIndex]);
+			dealerTotal = calculateTotal(dealersHand,'dealer');
 		}
+		// The dealer has 17 or more. Player hit stand. Check to see who won.
+		checkWin();
 
 	});
 
 });
+
+function checkWin(){
+	var playerTotal = calculateTotal(playersHand,'player');
+	var dealerTotal = calculateTotal(dealersHand,'dealer');
+
+	// player has more than 21. Player loses.
+	if(playerTotal > 21){
+		//Player busted. Put message DOM
+	//Dealer bust, player wins.
+	}else if(dealerTotal > 21){
+		// Player safe, dealer busts, message in DoM
+	//No one bust. See whos higher
+	}else{
+		if(playerTotal > dealerTotal){
+			// Player won. Say somewhere in DoM
+		}else if(dealerTotal > playerTotal){
+			// Dealer won. Say somewhere in DoM
+		}else{
+			// Tie (push). Say inDOM
+		}
+	}
+}
+
+function reset(){
+	// the deck needs to be reset
+	theDeck = freshDeck; //Make a copy of freshDeck
+	// the player and dealer hands need to be reset
+	playersHand = [];
+	dealersHand = [];
+	// reset the DOM
+	// - cards
+	$('.card').html('');
+	// - totals
+	var playerTotal = calculateTotal(playersHand,'player');
+	var dealerTotal = calculateTotal(dealersHand,'dealer');
+
+}
+
+
 function createDeck(){
 	var newDeck = [];
 	var suits = ['h','s','d','c'];
@@ -91,27 +140,14 @@ function calculateTotal(hand, who){
 	var cardValue = 0; //temp var for value of current card
 	for(let i=0; i < hand.length; i++){
 		cardValue = Number(hand[i].slice(0,-1));
-		total += cardValue;
-	}
+		if(cardValue > 10){
+			cardValue = 10;
+		}
+	total += cardValue;
+}
 	var classSelector = '.'+who+'-total-number'
 	$(classSelector).text(total);
-
-	// if(who === 'player'){
-	// 	$('player-total-number').html()
-	// }else{
-	// 	$('dealer-total-number').html()
-	// }
+	return total;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 

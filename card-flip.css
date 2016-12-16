@@ -1,0 +1,52 @@
+#parent{
+	height: 200px;
+	width: 200px;
+	border: 5px solid white;
+	perspective: 500px;
+	transition:  all 3s;
+
+}
+#threeDChild{
+	border: 5px solid blue;
+	transition: all 2s;
+	height: 200px;
+	width: 200px;
+}
+#parent.flip{
+	perspective: 100px;
+}
+#threeDChild.flip{
+	transform: rotateY(180deg);
+}
+.card{
+	height: 300px;
+	width: 300px;
+	border: 2px solid white;
+	perspective: 300px;
+}
+/* this is the child that can play 3d,and is holding the two card faces */
+.face-holder{
+	height: 300px;
+	width: 300px;
+	position: relative; /*the children of face-holder will be absolute*/
+	transition: all 1s;
+	transform-style: preserve-3d;
+}
+/*the actual face of the card and the face of the bacl. they need a 3d space*/
+.card-front, .card-back{
+	position:  absolute;
+	top: 0;
+	left: 0;
+	border: 1px solid white;
+	backface-visibility: hidden;
+}
+.card-front{
+	transform: rotateY(180deg);
+
+}
+.card-back{
+
+}
+.flip{
+	transform: rotateY(-180deg) ;
+}

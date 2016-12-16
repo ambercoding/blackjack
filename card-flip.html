@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="card-flip.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#threeDChild').click(function(){
+			$(this).toggleClass('flip');
+		});
+		$('.face-holder').click(function(){
+			$(this).toggleClass('flip');
+		})
+	});
+	</script>
+</head>
+<body>
+	<div class="card">
+	<!-- inner container that will hold both divs back to back -->
+	<!-- this will be able to play in 3d -->
+		<div class="face-holder">
+			<div class="card-front">
+				<img src="http://placekitten.com/g/280/300">
+			</div>
+		
+			<div class="card-back">
+				<img src="https://placekitten.com/g/300/300">
+			</div>
+		</div>
+		<div class="face-holder">
+			<div class="card-front">
+				<img src="http://placekitten.com/g/280/300">
+			</div>
+		
+			<div class="card-back">
+				<img src="https://placekitten.com/g/300/300">
+			</div>
+		</div>
+
+	</div>
+	<div class="card"
+</body>
+</html>
